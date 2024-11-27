@@ -1,44 +1,51 @@
+/* General Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    display: flex;
+    flex-direction: column;
 }
 
 .dashboard {
     display: flex;
+    flex-wrap: nowrap;
     height: 100vh;
+    overflow: hidden;
 }
 
 .sidebar {
     width: 250px;
-    background-color: #343a40;
+    background: #343a40;
     color: white;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .sidebar h2 {
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+    font-size: 20px;
     text-align: center;
 }
 
 .sidebar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .sidebar ul li {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .sidebar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
-    display: block;
     padding: 10px;
-    border-radius: 4px;
+    display: block;
+    border-radius: 5px;
     transition: background 0.3s;
 }
 
@@ -47,124 +54,76 @@ body {
 }
 
 .content {
-    flex: 1;
+    flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
+    background: #f8f9fa;
 }
 
 .card {
     background: white;
+    border-radius: 5px;
     padding: 20px;
-    border-radius: 8px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card h2 {
-    margin-bottom: 15px;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.stat-item {
-    flex: 1;
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.stat-item h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-
-.stat-item p {
-    font-size: 14px;
-    color: #666;
-}
-
-.profile-details p {
-    margin: 10px 0;
-}
-
-#withdrawalHistory {
-    list-style: none;
-    padding: 0;
-}
-
-#withdrawalHistory li {
-    background: #f8f9fa;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-
-/* Maintain existing styles and add specific styles for task */
-.task-link {
-    display: inline-block;
-    background: #007bff;
+/* Responsive Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: #343a40;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-bottom: 15px;
-    transition: background 0.3s;
-}
-
-.task-link:hover {
-    background: #0056b3;
-}
-
-.input-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-#codeInput {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-}
-
-#codeInput.invalid {
-    border-color: red;
-}
-
-#submitCode {
-    background: #28a745;
-    color: white;
-    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px 20px;
     cursor: pointer;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
 }
 
-#submitCode:hover {
-    background: #218838;
+.menu-toggle:focus {
+    outline: none;
 }
 
-#taskStatus {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.hidden {
+.sidebar.hidden {
     display: none;
 }
 
-#timer {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #555;
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar ul li {
+        margin-bottom: 5px;
+    }
+
+    .card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
 }
