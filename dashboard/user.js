@@ -72,3 +72,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize task
     startTask();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+            sidebar.classList.remove("open");
+        }
+    });
+});
