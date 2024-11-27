@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="user.css">
+    <script src="user.js" defer></script>
+</head>
+<body>
+    <button class="menu-toggle" id="menuToggle">☰ Menu</button>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>User Dashboard</h2>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#task">Current Task</a></li>
+                <li><a href="#earnings">Earnings</a></li>
+                <li><a href="#withdrawals">Withdrawals</a></li>
+                <li><a href="#logout" id="logoutBtn">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="overview" class="card">
+                <h2>Overview</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3 id="totalTasks">0</h3>
+                        <p>Total Tasks Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="tasksToday">0</h3>
+                        <p>Tasks Completed Today</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="userBalance">$0.00</h3>
+                        <p>Current Balance</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profile" class="card">
+                <h2>Profile</h2>
+                <div class="profile-details">
+                    <p><strong>Name:</strong> <span id="userName">John Doe</span></p>
+                    <p><strong>Email:</strong> <span id="userEmail">johndoe@example.com</span></p>
+                    <p><strong>Member Since:</strong> <span id="userSince">2024-01-01</span></p>
+                </div>
+            </section>
+
+            <section id="task" class="card">
+                <h2>Current Task</h2>
+                <div id="taskContainer">
+                    <p id="taskDescription">No task currently available.</p>
+                    <a id="taskLink" href="#" target="_blank" class="task-link hidden">Watch Video</a>
+                    <div class="input-group hidden" id="codeInputGroup">
+                        <input type="text" id="codeInput" placeholder="Enter the code here">
+                        <button id="submitCode">Submit</button>
+                    </div>
+                    <p id="taskStatus"></p>
+                    <p id="timer">Time Left: <span id="timeRemaining">30:00</span></p>
+                </div>
+            </section>
+
+            <section id="earnings" class="card">
+                <h2>Earnings</h2>
+                <p><strong>Total Earnings:</strong> <span id="totalEarnings">$0.00</span></p>
+                <p><strong>Pending Earnings:</strong> <span id="pendingEarnings">$0.00</span></p>
+            </section>
+
+            <section id="withdrawals" class="card">
+                <h2>Withdrawal History</h2>
+                <ul id="withdrawalHistory">
+                    <li>No withdrawals yet.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
