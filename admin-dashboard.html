@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - TaskFlow</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <nav>
+      <a href="logout.php">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="upload-task">
+      <h2>Upload New Task</h2>
+      <form id="task-form" action="upload-task.php" method="POST">
+        <label for="task-title">Task Title:</label>
+        <input type="text" id="task-title" name="title" required>
+        
+        <label for="task-description">Description:</label>
+        <textarea id="task-description" name="description" required></textarea>
+
+        <label for="task-status">Status:</label>
+        <select id="task-status" name="status">
+          <option value="Incomplete">Incomplete</option>
+          <option value="Completed">Completed</option>
+        </select>
+
+        <button type="submit">Upload Task</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 TaskFlow. All rights reserved.</p>
+  </footer>
+</body>
+</html>
